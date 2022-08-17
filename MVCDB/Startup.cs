@@ -26,6 +26,8 @@ namespace MVCDB
         {
            services.AddDbContext<db1045Context>(db => db.UseSqlServer(config.GetConnectionString("mycon")));
             services.AddMvc(ep =>ep.EnableEndpointRouting = false);
+            //used for dependency injection
+            services.AddTransient<IDept, DeptRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
