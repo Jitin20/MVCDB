@@ -1,0 +1,17 @@
+﻿@model Dept
+
+<h2>Delete the Entries of @Model.Name Here!</h2>
+<hr/>
+<p>
+	<label asp-for="Id"></label> : <input type="text" asp-for="Id" readonly/>
+</p>
+
+<p>
+	<label asp-for="Location"></label> : <input type="text" asp-for="Location" readonly/>
+</p>
+
+<form method="post">
+	<input type="submit" value="Are You Sure ?" style="background-color:red;height:100px;font-size:xx-large"/>
+</form>
+
+@Html.ActionLink("Back To List", "List")

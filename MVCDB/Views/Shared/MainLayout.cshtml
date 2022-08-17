@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Styles/MainStyles.css" rel ="stylesheet"/>
+</head>
+<body>
+    <h1>Microsoft Inc</h1>
+    <hr/>
+    <nav style="Background-color: white; color:white; text-align:center;padding:5px 5px 5px 5px;">
+       <a asp-controller="Dept" asp-action="List">Department</a>&nbsp;&nbsp;&nbsp;&nbsp;
+       <a asp-controller="Emp" asp-action="List">Employee</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
