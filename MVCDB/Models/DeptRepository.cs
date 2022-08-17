@@ -10,7 +10,8 @@ namespace MVCDB.Models
         db1045Context db = new db1045Context();
         public void AddDept(Dept dept)
         {
-            
+            db.Depts.Add(dept);
+            db.SaveChanges();
         }
 
         public void DeleteDept(int id)
