@@ -16,12 +16,17 @@ namespace MVCDB.Models
 
         public void DeleteDept(int id)
         {
-            throw new NotImplementedException();
+           Dept dept = db.Depts.Find(id);
+            db.Depts.Remove(dept);
+            db.SaveChanges();
         }
 
         public void EditDept(Dept dept)
         {
-            throw new NotImplementedException();
+           Dept odept = db.Depts.Find(dept.Id);
+            odept.Name = dept.Name;
+            odept.Location = dept.Location;
+            db.SaveChanges();
         }
 
         public Dept FindDept(int id)
