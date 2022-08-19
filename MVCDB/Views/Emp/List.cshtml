@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Emp>
+<h1>Employee Listing</h1>
+<hr/>
+@*This is using Tag Helper*@
+<a asp-controller="Emp" asp-action="Create">Add Employee</a>
+<br/>
+<table border="1">
+	<thead>
+		<tr>
+
+			<th>
+				@Html.DisplayNameFor(e=>e.Id)
+			</th>
+			<th>
+				@Html.DisplayNameFor(e=>e.Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(e=>e.Deptid)
+			</th>	
+			
+			<th>
+				@Html.DisplayNameFor(e=>e.Dob)
+			</th>
+		</tr>
+	</thead>
+
+
+	<tbody>
+		@foreach(var data in Model)
+		{
+			<tr>
+				<td>@Html.DisplayFor(e=>data.Id)</td>
+				<td>@Html.DisplayFor(e=>data.Name)</td>
+				<td>@Html.DisplayFor(e=>data.Dept.Name)</td>
+				<td>@Html.DisplayFor(e=>data.Dob)</td>
+				<td>
+					<a asp-controller="Emp" asp-action="Edit" asp-route-id="@data.Id">Edit</a>
+					<a asp-controller="Emp" asp-action="Create" asp-route-id="@data.Id">Display</a>
+				</td>
+			</tr>
+
+		}
+	</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*THis is USING HTML HELPER*@
+@*//Add Emp will be displayed*@
+@*@Html.ActionLink("Add Emp", "Create")
+<table border="1">
+	<thead>
+		<tr>
+
+			<th>
+				@Html.DisplayNameFor(e=>e.Id)
+			</th>
+			<th>
+				@Html.DisplayNameFor(e=>e.Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(e=>e.Salary)
+			</th>
+			<th>
+				@Html.DisplayNameFor(e=>e.Dob)
+			</th>
+			<th>
+				@Html.DisplayNameFor(e=>e.Email)
+			</th>
+			
+			
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var data in Model)
+		{
+			<tr>
+				<td>@Html.DisplayFor(e=>data.Id)</td>
+				<td>@Html.DisplayFor(e=>data.Name)</td>
+				<td>@Html.DisplayFor(e=>data.Salary)</td>
+				<td>@Html.DisplayFor(e=>data.Dob)</td>
+				<td>@Html.DisplayFor(e=>data.Email)</td>
+				<td>
+					@Html.ActionLink("Details", "Display", new {id= data.Id})&nbsp;&nbsp;&nbsp;&nbsp;
+					@Html.ActionLink("Edit", "Edit", new {id = data.Id})&nbsp;&nbsp;&nbsp;&nbsp;
+					@Html.ActionLink("Deleted", "Deleted", new {id = data.Id})
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>*@
