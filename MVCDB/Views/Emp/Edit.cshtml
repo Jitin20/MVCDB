@@ -1,10 +1,14 @@
 ﻿@model Emp
-<h2>Add new Employees</h2>
+<h2>Edit Employees</h2>
 <hr/>
 
 <form method ="post">
 	<table>
 		<tr>
+			<td>
+				<label asp-for="Id"></label>
+			<input type="text" readonly asp-for="Id"/>
+		</td>
 			<td><label asp-for="Name"></label></td>
 			<td>
 				<input type="text" asp-for="Name"/>
@@ -34,8 +38,9 @@
 			</td>
 			<td></td>
 			<td>
+				@*<input type="hidden asp-for="Email"/>*@
 				<label asp-for="Email"></label>
-				<input type="email" asp-for="Email"/>
+				<input type="email" asp-for="Email" readonly/>
 				<span asp-validation-for="Email" style="color:red"></span>
 			</td>
 		</tr>
@@ -87,39 +92,3 @@
 
 
 
-@*USING HTML HELPER*@
-@*@using(Html.BeginForm())
-{
-	<div>
-		@Html.LabelFor(e=>e.Id)
-		@Html.EditorFor(e=>e.Id)
-		@Html.ValidationMessageFor(e=>e.Id,"",new{@style = "color:Red"})
-	</div>
-
-	<div>
-		@Html.LabelFor(e=>e.Name)
-		@Html.EditorFor(e=>e.Name)
-		@Html.ValidationMessageFor(e=>e.Name,"",new{@style = "color:Red"})
-	</div>
-	<div>
-		@Html.LabelFor(e=>e.Deptid)
-		@Html.EditorFor(e=>e.Deptid)
-		@Html.ValidationMessageFor(e=>e.Deptid,"",new{@style = "color:Red"})
-	</div>
-
-	<div>
-		@Html.LabelFor(e=>e.Dob)
-		@Html.EditorFor(e=>e.Dob)
-		@Html.ValidationMessageFor(e=>e.Dob,"",new{@style = "color:Red"})
-	</div>
-	<br/><br/>
-	<input type ="submit" value="Save"/>
-}
-
-<br/>
-<br/>
-@Html.ActionLink("Back To List", "List")
-<script src="~/jquery/jquery.min.js"></script>
-<script src="~/jquery-validate/jquery.validate.min.js"></script>
-<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-*@

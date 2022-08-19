@@ -29,13 +29,13 @@
 		@foreach(var data in Model)
 		{
 			<tr>
-				<td>@Html.DisplayFor(e=>data.Id)</td>
-				<td>@Html.DisplayFor(e=>data.Name)</td>
-				<td>@Html.DisplayFor(e=>data.Dept.Name)</td>
-				<td>@Html.DisplayFor(e=>data.Dob)</td>
+				<th>@Html.DisplayFor(e=>data.Id)</th>
+				<th>@Html.DisplayFor(e=>data.Name)</th>
+				<th>@Html.DisplayFor(e=>data.Dept.Name)</th>
+				<th>@Html.DisplayFor(e=>data.Dob)</th>
 				<td>
 					<a asp-controller="Emp" asp-action="Edit" asp-route-id="@data.Id">Edit</a>
-					<a asp-controller="Emp" asp-action="Create" asp-route-id="@data.Id">Display</a>
+					<a asp-controller="Emp" asp-action="Display" asp-route-id="@data.Id">Display</a>
 				</td>
 			</tr>
 

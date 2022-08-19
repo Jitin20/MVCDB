@@ -16,7 +16,7 @@ namespace MVCDB.Models
         [Display(Name = "Department ID")]
         public int? Deptid { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd)")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? Dob { get; set; }
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
