@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVCDB.Models;
+using System;
 namespace MVCDB.Controllers
 {
     public class DeptController : Controller
@@ -15,6 +16,7 @@ namespace MVCDB.Controllers
 
         public IActionResult List()
         {
+
             var data = repos.GetDepts();
             return View(data);
         }
@@ -32,13 +34,27 @@ namespace MVCDB.Controllers
         [HttpPost]
         public IActionResult Create(Dept dept)
         {
-            if (ModelState.IsValid)
+            try
             {
-                repos.AddDept(dept);
-                return RedirectToAction("List");
+                if (ModelState.IsValid)
+                {
+
+
+                    repos.AddDept(dept);
+                    return RedirectToAction("List");
+                }
+                return View(dept);
             }
-            return View(dept);
-        }
+
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.InnerException.Message;
+                return View("Error");
+            }
+                
+            }
+         
+        
         [HttpGet]
         public IActionResult Edit(int id)
         {
